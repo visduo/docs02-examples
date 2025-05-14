@@ -1,0 +1,8 @@
+# 全局安装webpack
+npm install webpack -g
+
+# 全局安装webpack-cli
+npm install webpack-cli -g
+
+# 查看webpack版本信息
+webpack -v

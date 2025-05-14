@@ -1,0 +1,8 @@
+# 进入REPL交互式环境
+node
+
+# 执行JavaScript代码
+console.log('hello, node.js')
+
+# 退出REPL交互式环境
+.exit

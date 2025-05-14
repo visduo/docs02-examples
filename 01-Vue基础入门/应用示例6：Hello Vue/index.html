@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入vue.js -->
+    <script src="vue.js"></script>
+</head>
+<body>
+<!-- 定义一个div盒子 -->
+<div id="app">
+    <!-- 显示Vue的数据 -->
+    <h3>{{message}}</h3>
+</div>
+
+<script>
+    // 创建Vue实例
+    let vm = new Vue({
+	// el：Vue要控制的页面区域（将div盒子托管给Vue）
+        el: "#app",
+        // data：Vue控制的区域的数据
+        data: {
+            message: "Hello，Vue.js!"
+        }
+    })
+</script>
+</body>
+</html>
