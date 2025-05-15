@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--
+        button存在事件冒泡
+    -->
+    <div @click="doParent" style="width: 200px; height: 200px; background-color: green">
+        <button @click.self="doThis">01</button>
+    </div>
+
+    <!--
+        div的点击事件只有自身被点击才会被触发
+        button虽然存在事件冒泡，但是不会影响到div的点击事件
+    -->
+    <div @click.self="doParent" style="width: 200px; height: 200px; background-color: red">
+        <button @click="doThis">02</button>
+    </div>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        methods : {
+            doParent() {
+                console.log("父元素被点击")
+            },
+            doThis() {
+                console.log("子元素被点击")
+            }
+        }
+    })
+</script>
+</body>
+</html>

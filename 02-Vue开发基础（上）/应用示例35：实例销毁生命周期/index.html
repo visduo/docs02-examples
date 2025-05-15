@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>{{name}}</h3>
+    <button @click="showInfo">点我</button>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue实例创建成功！'
+        },
+        methods: {
+            showInfo() {
+                this.name = '点击啦！'
+            }
+        },
+        beforeDestroy() {
+            // 实例销毁前：绑定、事件还未失效
+            console.log('实例销毁之前')
+        },
+        destroyed() {
+            // 实例销毁后：绑定、事件失效
+            console.log('实例销毁之后')
+        }
+    })
+
+    // 销毁实例
+    vm.$destroy()
+</script>
+</body>
+</html>

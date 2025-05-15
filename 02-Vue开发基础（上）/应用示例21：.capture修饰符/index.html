@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--
+        事件捕获的执行顺序由外向内，与事件冒泡相反
+        点击button按钮，div的点击事件被捕获
+        先触发div的点击事件，再触发button的点击事件
+    -->
+    <div @click.capture="doParent" style="width: 200px; height: 200px; background-color: green">
+        <button @click="doThis">事件捕获1</button>
+        <button @click="doThis">事件捕获2</button>
+    </div>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        methods : {
+            doParent() {
+                console.log("父元素被点击")
+            },
+            doThis() {
+                console.log("子元素被点击")
+            }
+        }
+    })
+</script>
+</body>
+</html>

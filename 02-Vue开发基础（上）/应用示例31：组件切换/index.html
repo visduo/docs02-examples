@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <a href="#" @click.prevent="flag ? flag : flag=!flag">登录</a>
+    <a href="#" @click.prevent="flag ? flag=!flag : flag">注册</a>
+    <login v-if="flag"></login>
+    <register v-else></register>
+
+    <br>
+
+    <a href="#" @click.prevent="componentName='login'">登录</a>
+    <a href="#" @click.prevent="componentName='register'">注册</a>
+    <component v-bind:is="componentName"></component>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            flag: true,
+            componentName: 'login'
+        },
+        components : {
+            login: {
+                template: '<div>登录页面</div>'
+            },
+            register: {
+                template: '<div>注册页面</div>'
+            }
+        }
+    })
+</script>
+</body>
+</html>

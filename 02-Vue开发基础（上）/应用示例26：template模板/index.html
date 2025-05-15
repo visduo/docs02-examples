@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
+</div>
+
+<template id="myTemplate">
+    <div>
+        点击以下按钮：
+        <button @click="count++">被单机了{{count}}次</button>
+    </div>
+</template>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        components: {
+            myComponent: {
+                data() {
+                    return {
+                        count: 0
+                    }
+                },
+                template: '#myTemplate'
+            }
+        }
+    })
+</script>
+</body>
+</html>

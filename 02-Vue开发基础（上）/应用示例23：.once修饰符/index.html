@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 按钮的点击事件只会被触发一次 -->
+    <p v-text="count"></p>
+    <button @click.once="count+=Math.random()">点击</button>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        }
+    })
+</script>
+</body>
+</html>

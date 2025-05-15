@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 调用子组件，设置子组件的"属性"，进行父向子传值 -->
+    <my-component title="A"></my-component>
+    <my-component title="AB"></my-component>
+    <my-component  title="ABC"></my-component>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        components: {
+            myComponent: {
+                // props：接收父组件给子组件传递的数据（参数列表）
+                props: ['title'],
+                // data：组件使用的数据
+                data() {
+                    return {
+                        count: 0
+                    }
+                },
+                template: '<button @click="count++">按钮{{title}}被单击了{{count}}次</button>'
+            }
+        }
+    })
+</script>
+</body>
+</html>

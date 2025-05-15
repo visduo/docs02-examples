@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-text="name"></p>
+    <input type="text" v-on:keyup.enter="showInfo">
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue实例创建成功！'
+        },
+        methods : {
+            showInfo() {
+                this.name = "Enter回车键被按下啦！"
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--
+        a标签的默认行为时跳转
+        阻止a标签的默认行为，页面不会进行跳转
+    -->
+    <a href="https://www.duozai.cn/">不阻止默认行为</a>
+    <a href="https://www.duozai.cn/" @click.prevent>阻止默认行为</a>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

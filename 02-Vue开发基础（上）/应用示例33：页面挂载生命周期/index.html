@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>{{name}}</h3>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue实例创建成功！'
+        },
+        beforeMount() {
+            // this.$el.innerHTML：获取#app的HTML内容
+            // 页面挂载前：数据未被渲染
+            console.log('页面挂载之前：' + this.$el.innerHTML)
+        },
+        mounted() {
+            // 页面挂载后：数据已经被渲染
+            console.log('页面挂载之后：' + this.$el.innerHTML)
+        }
+    })
+</script>
+</body>
+</html>

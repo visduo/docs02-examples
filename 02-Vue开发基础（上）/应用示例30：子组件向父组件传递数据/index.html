@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 调用父组件 -->
+    <parent></parent>
+</div>
+
+<template id="parent">
+    <div style="border: green solid 2px; padding: 20px">
+        <!--
+            父组件调用子组件
+            @child-fn：给调用的子组件绑定了一个child-fn事件
+            注意事件的名称要使用短横杠命名法，驼峰命名法可能无法使用
+            @child-fn：子组件向父组件发送消息时，触发父组件的transContent方法
+        -->
+        <child @child-fn="transContent"></child>
+        子组件传来的消息：{{message}}
+    </div>
+</template>
+
+<template id="child">
+    <div style="border: blue solid 2px; padding: 20px;">
+        <input type="text" v-model="message">
+        <button @click="send">发送</button>
+    </div>
+</template>
+
+<script>
+    // 注册父组件
+    Vue.component('parent', {
+        template: '#parent',
+        data() {
+            return {
+                message: ''
+            }
+        },
+        methods: {
+            // playload：子组件传递给父组件的数据
+            transContent(playload) {
+                this.message = playload
+            }
+        }
+    })
+
+    Vue.component('child', {
+        template: '#child',
+        data() {
+            return {
+                message: '我是子组件'
+            }
+        },
+        methods : {
+            send() {
+                // this.$emit：向父组件传递子组件的message
+                // child-fn：调用子组件时绑定的事件名称
+                // this.message：要传递的数据
+                this.$emit('child-fn', this.message)
+            }
+        }
+    })
+
+    let vm = new Vue({
+        el: '#app',
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>{{name}}</h3>
+    <button @click="showInfo">点我</button>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue实例创建成功！'
+        },
+        methods: {
+            showInfo() {
+                this.name = '点击啦！'
+            }
+        },
+        beforeUpdate() {
+            // 数据更新前：数据未被渲染
+            // 数据是新的，但是还没渲染到视图页面上
+            console.log('数据更新之前：' + this.name)
+            console.log('数据更新之前：' + this.$el.innerHTML)
+        },
+        updated() {
+            // 数据更新后：数据已经被渲染
+            // 数据和视图页面都是新的
+            console.log('数据更新之后：' + this.name)
+            console.log('数据更新之后：' + this.$el.innerHTML)
+        }
+    })
+</script>
+</body>
+</html>

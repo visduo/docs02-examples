@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-text="name"></p>
+    <p v-text="count"></p>
+    <!-- 绑定事件处理方法 -->
+    <button @click="showInfo">点击</button>
+    <!-- 在触发事件时执行JavaScript代码 -->
+    <button @click="count+=Math.random()">点击2</button>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue实例创建成功！',
+            count: 0
+        },
+        methods : {
+            showInfo() {
+                this.name = "点击啦！"
+            }
+        }
+    })
+</script>
+</body>
+</html>
