@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+        .box {
+            background-color: red;
+            width: 500px;
+            height: 500px;
+        }
+        .box2 {
+            background-color: green;
+            width: 500px;
+            height: 500px;
+        }
+        .inner {
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-bind:class="box">
+        <div v-bind:class="inner">
+        </div>
+    </div>
+    <button @click="change">点我</button>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            box: 'box',
+            inner: 'inner'
+        },
+        methods: {
+            change() {
+                this.box = 'box2'
+            }
+        }
+    })
+</script>
+</body>
+</html>

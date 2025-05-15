@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- v-bind:value可以缩写成:value -->
+    请输入内容：<input v-bind:value="name">
+    <br>
+    输入的内容：{{name}}
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'duozai'
+        }
+    })
+</script>
+</body>
+</html>
