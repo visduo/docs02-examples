@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-text="name" v-show="isShow"></p>
+    <button @click="showInfo">点击</button>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue实例创建成功！',
+            isShow: true
+        },
+        methods : {
+            showInfo() {
+                this.isShow = !this.isShow
+            }
+        }
+    })
+</script>
+</body>
+</html>
