@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 在插值表达式中使用过滤器 属性名 |(管道符) 过滤方法 -->
+    <h3>{{message}}</h3>
+    <h3>{{message | toUpperCase}}</h3>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'HelloWorld！'
+        },
+        filters: {
+            // value：旧的值
+            toUpperCase(value) {
+                // 将字母转换成大写
+                // 返回新的值
+                return value.toUpperCase();
+            }
+        }
+    })
+</script>
+</body>
+</html>

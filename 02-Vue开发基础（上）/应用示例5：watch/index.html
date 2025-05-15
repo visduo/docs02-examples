@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- v-model用于双向绑定 -->
+    <input v-model="name">
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue实例创建成功！'
+        },
+        watch : {
+            name (newName, oldName) {
+                console.log("新的值是：" + newName)
+                console.log("旧的值是：" + oldName)
+            }
+        }
+    })
+</script>
+</body>
+</html>

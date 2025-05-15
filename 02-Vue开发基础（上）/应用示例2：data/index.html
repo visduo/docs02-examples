@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 使用插值表达式访问数据 -->
+    <h3>{{message}}</h3>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello，Vue.js!"
+        }
+    })
+
+    // 使用Vue实例访问数据
+    console.log(vm.$data.message)
+    console.log(vm.message)
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>{{message}}</h3>
+</div>
+
+<!-- 在#app外部，无法读取到Vue实例内部的数据 -->
+<h3>{{message}}</h3>
+
+<script>
+    let vm = new Vue({
+        // 将#app盒子托管给Vue实例
+        el: "#app",
+        data: {
+            message: "Hello，Vue.js!"
+        }
+    })
+</script>
+</body>
+</html>
