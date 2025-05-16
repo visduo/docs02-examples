@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app1">
+    title：{{title}}
+</div>
+
+<div id="app2">
+    title：{{title}}
+</div>
+
+<script>
+    // Vue2继承Vue，并实现某些特性
+    let Vue2 = Vue.extend({
+        // data：在Vue.extend()中使用时只能是一个函数
+        data() {
+            return {
+                title: 'Vue2的标题'
+            }
+        },
+        methods: {
+
+        }
+    })
+
+    let vm1 = new Vue({
+        el: '#app1',
+    })
+
+    let vm2 = new Vue2({
+        el: '#app2',
+    })
+</script>
+</body>
+</html>

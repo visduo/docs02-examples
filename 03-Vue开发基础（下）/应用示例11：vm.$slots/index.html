@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-component>
+        <template v-slot:slot01>
+            <div>Hello，Vue</div>
+        </template>
+        <template v-slot:slot02>
+            <div>Hello，Component</div>
+        </template>
+        <template v-slot:slot03>
+            <div>Hello，Slots</div>
+        </template>
+    </my-component>
+</div>
+
+<template id="myTemplate">
+    <div>
+        <slot name="slot01"></slot>
+        <slot name="slot02"></slot>
+        <slot name="slot03"></slot>
+    </div>
+</template>
+
+<script>
+    Vue.component('my-component', {
+        template: '#myTemplate',
+        created() {
+            console.log(this.$slots)
+        }
+    })
+
+    let vm = new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

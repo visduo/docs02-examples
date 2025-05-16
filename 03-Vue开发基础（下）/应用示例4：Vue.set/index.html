@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    msg：{{msg}}
+</div>
+
+<script>
+    Vue.mixin({
+        data() {
+            return {
+                msg: '混入的数据'
+            }
+        },
+        created() {
+            console.log('混入的created')
+        }
+    })
+
+    let vm = new Vue({
+        el: '#app',
+        created() {
+            console.log('Vue实例自身的created')
+        }
+    })
+</script>
+</body>
+</html>

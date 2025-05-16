@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-component id="test" class="test" name="hello"></my-component>
+</div>
+
+<script>
+    Vue.component('my-component', {
+        template: '<button @click="showAttrs">查看组件属性</button>',
+        methods: {
+            showAttrs() {
+                console.log(this.$attrs)
+            }
+        }
+    })
+
+    let vm = new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

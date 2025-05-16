@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    name: {{user.name}}<br>
+    age: {{user.age}}
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            user: {
+                name: '张三'
+            }
+        }
+    })
+
+    Vue.set(vm.user, 'age', '18')
+
+    setTimeout(function () {
+        Vue.set(vm.user, 'age', '28')
+    }, 3000)
+</script>
+</body>
+</html>

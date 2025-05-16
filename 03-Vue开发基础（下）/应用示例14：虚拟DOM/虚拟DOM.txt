@@ -1,0 +1,7 @@
+{
+    'div',
+    props: { id:'box', class:'container' },
+    children: [
+        { tag: 'h1', children:'Hello，Vue' }
+    ]
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="getOption">获取自定义选项</button>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        customOption: '我是自定义数据',
+        methods: {
+            getOption() {
+                console.log(this.$options.customOption)
+            }
+        }
+    })
+</script>
+</body>
+</html>

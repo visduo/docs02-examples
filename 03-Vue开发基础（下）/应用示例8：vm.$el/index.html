@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>原来的HTML</p>
+</div>
+
+<script>
+    let vm = new Vue({
+        el: '#app'
+    })
+
+    vm.$el.innerHTML = "<h3>new html</h3>"
+</script>
+</body>
+</html>

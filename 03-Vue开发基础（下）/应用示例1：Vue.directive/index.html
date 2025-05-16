@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <demo-component></demo-component>
+</div>
+<script>
+    let MyPlugin = {}
+    MyPlugin.install = function(Vue, option) {
+        Vue.component('demo-component', {
+            data() {
+                return {
+                    message: option.message
+                }
+            },
+            template: '<h1>这是插件内定义的组件，参数为：{{option.message}}</h1>'
+        })
+    }
+
+    // 安装插件
+    Vue.use(MyPlugin, {
+        message: 'hello, plugin'
+    })
+
+    let vm = new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>
